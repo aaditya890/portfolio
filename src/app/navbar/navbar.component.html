@@ -1,0 +1,132 @@
+<header class="sticky top-4 z-50 px-4">
+
+  <!-- TOP NAV -->
+  <div
+    class="relative flex items-center justify-between
+           px-3 sm:px-6 py-1 max-w-4xl mx-auto
+           rounded-full
+           bg-white/60 backdrop-blur-xl
+           border border-white/40
+           shadow-sm
+           transition-all duration-500">
+
+    <!-- LEFT -->
+    <div>
+      <button (click)="navigate('home')">
+        <img
+          [src]="profileImage"
+          alt="Profile"
+          class="w-12 h-12 relative top-1 rounded-full object-cover ring-2 ring-white/60 shadow-md" />
+      </button>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden sm:flex items-center gap-8">
+      @for (item of links; track item) {
+      <button
+        (click)="navigate(item.toLowerCase())"
+        class="text-sm font-medium text-gray-700 hover:text-black transition">
+        {{ item }}
+      </button>
+      }
+    </nav>
+
+    <!-- RIGHT -->
+    <div class="flex items-center gap-3">
+
+      <!-- Desktop Button -->
+      <button
+        class="hidden sm:flex w-9 h-9 rounded-full border border-black/20
+               text-sm font-semibold hover:bg-black hover:text-white transition">
+        h
+      </button>
+
+     <!-- 🔥 NEW ANIMATED HAMBURGER -->
+<button
+  (click)="toggleMenu()"
+  class="sm:hidden"
+  aria-label="Toggle menu">
+
+  <div class="hamburger">
+    <input
+      class="checkbox"
+      type="checkbox"
+      [checked]="open"
+      (change)="toggleMenu()"
+      aria-hidden="true" />
+
+    <svg fill="none" viewBox="0 0 50 50" height="35" width="35">
+      <path
+        class="lineTop line"
+        stroke-linecap="round"
+        stroke-width="6"
+        stroke="black"
+        d="M6 11L44 11" />
+
+      <path
+        class="lineMid line"
+        stroke-linecap="round"
+        stroke-width="6"
+        stroke="black"
+        d="M6 24H43" />
+
+      <path
+        class="lineBottom line"
+        stroke-linecap="round"
+        stroke-width="6"
+        stroke="black"
+        d="M6 37H43" />
+    </svg>
+  </div>
+
+</button>
+
+    </div>
+  </div>
+
+  <!-- MOBILE DRAWER -->
+  @if (open) {
+
+  <!-- Overlay -->
+  <div
+    (click)="open = false"
+    class="fixed inset-0 bg-black/30 backdrop-blur-sm z-40
+           transition-opacity duration-300">
+  </div>
+
+  <!-- Bottom Drawer -->
+  <div
+    class="fixed bottom-0 left-0 w-full
+           bg-white rounded-t-3xl
+           px-6 py-10
+           z-50
+           animate-slideUp">
+
+    <!-- Header -->
+    <div class="flex items-center gap-4 mb-10">
+      <img
+        [src]="profileImage"
+        alt="Profile"
+        class="w-10 h-10 rounded-full object-cover" />
+
+      <div>
+        <p class="text-sm font-semibold">{{ profileName }}</p>
+        <p class="text-xs text-gray-500">{{ profileRole }}</p>
+      </div>
+    </div>
+
+    <!-- Links -->
+    <div class="flex flex-col items-center gap-6">
+      @for (item of links; track item) {
+      <button
+        (click)="navigate(item.toLowerCase())"
+        class="text-lg font-medium">
+        {{ item }}
+      </button>
+      }
+    </div>
+  </div>
+
+  }
+
+</header>
