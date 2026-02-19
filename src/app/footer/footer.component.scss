@@ -1,0 +1,84 @@
+.cssbuttons-io-button {
+  background: linear-gradient(135deg, #6D28D9, #7C3AED, #9333EA);
+  color: #fff;
+  font-family: inherit;
+  padding: 0.35em;
+  padding-left: 1.4em;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 1em;
+  border: none;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  height: 3em;
+  padding-right: 3.6em;
+  cursor: pointer;
+
+  // box-shadow: 0 8px 28px rgba(124, 58, 237, 0.45);
+  transition: all 0.3s ease;
+}
+
+.cssbuttons-io-button:hover {
+  transform: translateY(-3px);
+  // box-shadow: 0 14px 40px rgba(124, 58, 237, 0.65);
+}
+
+.cssbuttons-io-button:active {
+  transform: scale(0.96);
+}
+
+.cssbuttons-io-button .icon {
+  background: #ffffff;
+  margin-left: 1em;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 2.4em;
+  width: 2.4em;
+  border-radius: 0.8em;
+  right: 0.35em;
+  transition: all 0.3s ease;
+
+  box-shadow: 0 4px 18px rgba(147, 51, 234, 0.4);
+}
+
+.cssbuttons-io-button:hover .icon {
+  width: calc(100% - 0.7em);
+}
+
+.cssbuttons-io-button .icon svg {
+  width: 1.1em;
+  transition: transform 0.35s ease;
+  color: #7C3AED;
+}
+
+.cssbuttons-io-button:hover .icon svg {
+  transform: rotate(-45deg) translateX(3px);
+}
+
+/* 🔥 Subtle Shine Animation */
+.cssbuttons-io-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transform: skewX(-25deg);
+  transition: 0.7s;
+}
+
+.cssbuttons-io-button:hover::after {
+  left: 125%;
+}
