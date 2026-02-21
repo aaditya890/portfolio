@@ -1,0 +1,133 @@
+<section class="projects-section py-20 px-4 md:px-8 lg:px-12 bg-slate-950">
+  <!-- Section Header -->
+  <div class="max-w-7xl mx-auto mb-12" data-aos="fade-up">
+    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">Selected Projects</h2>
+    <p class="text-lg text-slate-400 max-w-2xl">
+      A showcase of recent projects demonstrating expertise in modern web technologies and innovative solutions.
+    </p>
+  </div>
+
+  <!-- Desktop Layout: Two Column Grid -->
+  <div class="max-w-7xl mx-auto hidden md:grid md:grid-cols-3 gap-8">
+    <!-- Left Column: Project List -->
+    <div class="md:col-span-1">
+      <div class="space-y-1">
+        <button
+          *ngFor="let project of projects"
+          (click)="selectProject(project.id)"
+          [class.active]="activeProjectId === project.id"
+          class="project-item w-full text-left py-4 px-4 rounded-lg transition-all duration-300 border border-slate-800 hover:border-slate-700 hover:bg-slate-900 cursor-pointer group"
+          [attr.data-aos]="'fade-right'"
+          [attr.data-aos-delay]="project.id * 100"
+        >
+          <div class="flex items-center justify-between">
+            <div class="flex-1">
+              <h3 class="text-white font-semibold text-sm md:text-base group-hover:text-cyan-400 transition-colors">
+                {{ project.title }}
+              </h3>
+              <p class="text-slate-400 text-xs md:text-sm mt-1">{{ project.category }}</p>
+            </div>
+            <div class="ml-3 w-1.5 h-1.5 rounded-full bg-slate-600 group-hover:bg-cyan-400 transition-colors"></div>
+          </div>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Column: Sticky Preview Image -->
+    <div class="md:col-span-2">
+      <div class="sticky top-32 h-fit">
+        <div class="relative overflow-hidden rounded-xl border border-slate-700 shadow-2xl bg-slate-900">
+          <!-- Preview Image with Fade Animation -->
+          <div class="relative overflow-hidden aspect-video md:aspect-square">
+            <img
+              *ngIf="activeProject"
+              [src]="activeProject.image"
+              [alt]="activeProject.title"
+              class="w-full h-full object-cover transition-all duration-500 ease-out transform hover:scale-105"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-40"></div>
+          </div>
+
+          <!-- Project Details Overlay -->
+          <div class="p-6 md:p-8">
+            <h3 class="text-2xl md:text-3xl font-bold text-white mb-2">{{ activeProject?.title }}</h3>
+            <p class="text-slate-300 text-sm md:text-base mb-6 leading-relaxed">
+              {{ activeProject?.description }}
+            </p>
+
+            <!-- Tags -->
+            <div class="flex flex-wrap gap-2">
+              <span
+                *ngFor="let tag of activeProject?.tags"
+                class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-slate-800 text-cyan-400 border border-slate-700"
+              >
+                {{ tag }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Layout: Single Column + Fixed Preview Card -->
+  <div class="md:hidden">
+    <!-- Project List -->
+    <div class="space-y-2 mb-32">
+      <button
+        *ngFor="let project of projects; let i = index"
+        (click)="selectProject(project.id)"
+        [class.active]="activeProjectId === project.id"
+        class="project-item w-full text-left py-4 px-4 rounded-lg transition-all duration-300 border border-slate-800 hover:border-slate-700 bg-slate-900 hover:bg-slate-800 cursor-pointer"
+        [attr.data-aos]="'fade-up'"
+        [attr.data-aos-delay]="i * 50"
+      >
+        <div class="flex items-center justify-between">
+          <div class="flex-1">
+            <h3 class="text-white font-semibold">{{ project.title }}</h3>
+            <p class="text-slate-400 text-sm mt-1">{{ project.category }}</p>
+          </div>
+          <div
+            class="ml-3 w-2 h-2 rounded-full transition-colors"
+            [class.bg-cyan-400]="activeProjectId === project.id"
+            [class.bg-slate-600]="activeProjectId !== project.id"
+          ></div>
+        </div>
+      </button>
+    </div>
+
+    <!-- Fixed Preview Card (Bottom Right) - Only visible when section is visible -->
+    <div
+      *ngIf="sectionVisible && activeProject"
+      class="fixed bottom-6 right-6 w-72 rounded-xl border border-slate-700 shadow-2xl bg-slate-900 overflow-hidden animate-fade-in z-40"
+    >
+      <!-- Image -->
+      <div class="relative overflow-hidden aspect-video">
+        <img
+          [src]="activeProject.image"
+          [alt]="activeProject.title"
+          class="w-full h-full object-cover transition-all duration-500"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-transparent to-transparent opacity-40"></div>
+      </div>
+
+      <!-- Details -->
+      <div class="p-4">
+        <h4 class="text-white font-bold text-sm mb-2">{{ activeProject.title }}</h4>
+        <p class="text-slate-400 text-xs mb-3 line-clamp-2">{{ activeProject.description }}</p>
+
+        <!-- Tags -->
+        <div class="flex flex-wrap gap-1">
+          <span
+            *ngFor="let tag of activeProject.tags.slice(0, 2)"
+            class="inline-block px-2 py-0.5 rounded text-xs font-medium bg-slate-800 text-cyan-400"
+          >
+            {{ tag }}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
