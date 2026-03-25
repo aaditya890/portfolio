@@ -52,7 +52,9 @@
 .marquee-track {
   display: flex;
   width: max-content;
-  animation: scrollX 22s linear infinite;
+  animation: scrollX 18s linear infinite;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* 📱 MOBILE SPEED (slightly faster but smooth) */
