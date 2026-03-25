@@ -47,20 +47,22 @@
 .marquee-wrapper {
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .marquee-track {
   display: flex;
-  width: max-content;
-  animation: scrollX 18s linear infinite;
+  width: fit-content; /* ❌ max-content hata */
+  min-width: 200%;    /* ✅ force loop width */
+  animation: scrollX 20s linear infinite;
   will-change: transform;
-  backface-visibility: hidden;
 }
 
 /* 📱 MOBILE SPEED (slightly faster but smooth) */
 @media (max-width: 768px) {
   .marquee-track {
     animation: scrollX 16s linear infinite;
+     transform: translateZ(0);
   }
 }
 
