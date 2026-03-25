@@ -61,7 +61,7 @@
 /* 📱 MOBILE SPEED (slightly faster but smooth) */
 @media (max-width: 768px) {
   .marquee-track {
-    animation: scrollX 16s linear infinite;
+    animation: scrollX 16s linear infinite !important;
      transform: translateZ(0);
   }
 }
