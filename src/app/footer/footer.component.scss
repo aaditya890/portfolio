@@ -1,13 +1,13 @@
 .cssbuttons-io-button {
-  background: linear-gradient(135deg, #6D28D9, #7C3AED, #9333EA);
-  color: #fff;
+background: rgba(124, 58, 237, 0.15); /* 👈 purple glow */
+  border: 1px solid rgba(108, 51, 207, 0.4);
+  color: #c4b5fd;
   font-family: inherit;
   padding: 0.35em;
   padding-left: 1.4em;
   font-size: 16px;
   font-weight: 500;
   border-radius: 1em;
-  border: none;
   letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;

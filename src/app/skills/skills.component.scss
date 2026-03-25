@@ -1,12 +1,78 @@
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* =========================
+   📱 MOBILE
+========================= */
+.skill-card-mini {
+  @apply flex flex-col items-center justify-center 
+         bg-gray-900/70 border border-gray-800 
+         rounded-lg p-2 transition-all duration-300;
+}
+
+// .skill-card-mini:hover {
+//   border-color: #a855f7;
+//   transform: scale(1.05);
+// }
+
+.mini-icon {
+  width: 22px;
+  height: 22px;
+}
+
+.mini-text {
+  font-size: 9px;
+  margin-top: 4px;
+  text-align: center;
+}
+
+/* =========================
+   💻 DESKTOP
+========================= */
+.skill-card {
+  @apply bg-gray-900/60 backdrop-blur-md 
+         border border-gray-800 rounded-xl 
+         p-5 text-center transition-all duration-300;
+}
+
+// .skill-card:hover {
+//   border-color: #a855f7;
+//   transform: translateY(-6px) scale(1.03);
+//   box-shadow: 0 10px 30px rgba(168, 85, 247, 0.2);
+// }
+
+.skill-icon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 10px;
+}
+
+.marquee-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollX 22s linear infinite;
+}
+
+/* 📱 MOBILE SPEED (slightly faster but smooth) */
+@media (max-width: 768px) {
+  .marquee-track {
+    animation: scrollX 16s linear infinite;
   }
 }
 
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
+/* 🔁 LOOP ANIMATION */
+@keyframes scrollX {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ✨ OUTLINE TEXT */
+.stroke-text {
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
 }
