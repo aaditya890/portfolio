@@ -45,38 +45,79 @@
 }
 
 .marquee-wrapper {
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
   width: 100%;
 }
 
-.marquee-track {
+/* fade */
+.fade-left,
+.fade-right {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 60px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, black, transparent);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, black, transparent);
+}
+
+/* container */
+.marquee {
   display: flex;
-  width: fit-content; /* ❌ max-content hata */
-  min-width: 200%;    /* ✅ force loop width */
-  animation: scrollX 20s linear infinite;
+  overflow: hidden;
+}
+
+/* moving track */
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  animation: marqueeScroll 18s linear infinite;
   will-change: transform;
+  transform: translate3d(0,0,0);
 }
 
-/* 📱 MOBILE SPEED (slightly faster but smooth) */
-@media (max-width: 768px) {
-  .marquee-track {
-    animation: scrollX 16s linear infinite !important;
-     transform: translateZ(0);
+/* each block */
+.marquee-item {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  font-size: 28px;
+  font-weight: bold;
+  white-space: nowrap;
+  padding-left: 40px;
+}
+
+/* desktop */
+@media (min-width: 768px) {
+  .marquee-item {
+    font-size: 56px;
+    gap: 80px;
+    padding-left: 80px;
   }
 }
 
-/* 🔁 LOOP ANIMATION */
-@keyframes scrollX {
-  from {
-    transform: translateX(0);
+/* animation */
+@keyframes marqueeScroll {
+  0% {
+    transform: translate3d(0,0,0);
   }
-  to {
-    transform: translateX(-50%);
+  100% {
+    transform: translate3d(-50%,0,0);
   }
 }
 
-/* ✨ OUTLINE TEXT */
+/* outline text */
 .stroke-text {
-  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.4);
+  -webkit-text-stroke: 1px rgba(255,255,255,0.4);
+  color: transparent;
 }
