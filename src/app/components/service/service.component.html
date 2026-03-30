@@ -1,0 +1,140 @@
+<section class="py-14 md:py-16">
+      <div class="max-w-7xl mx-auto px-4 mb-10 md:mb-16">
+
+  <!-- TOP ROW -->
+  <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+
+    <!-- LEFT (LABEL) -->
+    <div class="flex items-center gap-3">
+      <p class="text-green-400 text-sm font-mono">
+        // Explore Services
+      </p>
+
+      <!-- optional dot -->
+      <div class="hidden md:block w-3 h-3 rounded-full bg-green-400"></div>
+    </div>
+
+    <!-- RIGHT (TITLE) -->
+    <h2 class="text-2xl md:text-5xl font-bold text-white text-left md:text-right leading-tight max-w-xl">
+      Services I Provide
+    </h2>
+
+  </div>
+
+  <!-- CODE LINE -->
+  <div class="flex items-center gap-3 mt-4">
+
+    <span class="text-green-400 font-mono">&lt;/</span>
+
+    <div class="flex-1 h-[1px] bg-gradient-to-r from-green-400/60 via-cyan-400/40 to-transparent"></div>
+
+    <span class="text-green-400 font-mono">&gt;</span>
+
+  </div>
+
+</div>
+
+  <div class="max-w-7xl mx-auto px-6 py-3">
+
+
+
+    <!-- 🔹 CARDS -->
+    <div class="grid md:grid-cols-3 gap-20 md:gap-12 mt-16">
+
+      <!-- 🔥 CARD 1 -->
+      <div class="relative"   data-aos="fade-up" data-aos-delay="100">
+
+        <!-- ICON -->
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 z-10">
+          <div class="flex items-center justify-center rounded-2xl shadow-md">
+           <img src="assets/service-card/ui-ux.webp" alt="">
+          </div>
+        </div>
+
+        <!-- CARD -->
+        <div class="bg-white/5 border border-white/10 rounded-3xl pt-16 pb-8 px-6 text-center backdrop-blur">
+
+          <h3 class="text-white text-xl font-semibold mb-3">
+            UI/UX Design
+          </h3>
+
+          <p class="text-gray-400 text-sm mb-6">
+            Modern, user-friendly interfaces designed for better engagement and experience.
+          </p>
+
+          <div class="flex justify-center">
+            <button (click)="openContactDialog()" class="btn text-sm border px-5 py-1.5 rounded-full">
+             Consult Now →
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 🔥 CARD 2 -->
+      <div class="relative" data-aos="fade-up"
+         data-aos-delay="200">
+
+        <!-- ICON -->
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 z-10">
+          <div class="flex items-center justify-center rounded-2xl shadow-md">
+           <img src="assets/service-card/web-design.webp" alt="">
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-3xl pt-16 pb-8 px-6 text-center backdrop-blur">
+
+          <h3 class="text-white text-xl font-semibold mb-3">
+            Website Design
+          </h3>
+
+          <p class="text-gray-400 text-sm mb-6">
+            High-performance, responsive websites tailored for business growth.
+          </p>
+
+          <div class="flex justify-center">
+             <button (click)="openContactDialog()" class="btn text-sm border px-5 py-1.5 rounded-full">
+              Consult Now →
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- 🔥 CARD 3 -->
+      <div class="relative"  data-aos="fade-up"
+         data-aos-delay="300">
+
+         <!-- ICON -->
+        <div class="absolute -top-16 left-1/2 -translate-x-1/2 z-10">
+          <div class="flex items-center justify-center rounded-2xl shadow-md">
+           <img src="assets/service-card/crm.webp" alt="">
+          </div>
+        </div>
+        <div class="bg-white/5 border border-white/10 rounded-3xl pt-16 pb-8 px-6 text-center backdrop-blur">
+
+          <h3 class="text-white text-xl font-semibold mb-3">
+            CRM Design
+          </h3>
+
+          <p class="text-gray-400 text-sm mb-6">
+            Smart CRM systems to manage leads, customers, and workflows efficiently.
+          </p>
+
+          <div class="flex justify-center">
+             <button (click)="openContactDialog()" class="btn text-sm border px-5 py-1.5 rounded-full">
+              Consult Now →
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>

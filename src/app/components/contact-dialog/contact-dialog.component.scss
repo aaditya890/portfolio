@@ -1,0 +1,81 @@
+/* ================= DIALOG BASE ================= */
+
+.dialog-box {
+  @apply relative w-full max-w-md p-6 rounded-2xl overflow-hidden
+         border border-white/20 shadow-2xl bg-black;
+}
+
+/* ================= MOBILE ================= */
+
+.dialog-mobile {
+  @apply w-full p-6 pt-5 rounded-t-3xl border-t border-white/10
+         bg-black shadow-2xl animate-slideUp relative overflow-hidden;
+}
+
+/* ================= BACKGROUND SYSTEM ================= */
+
+.dialog-box::before,
+.dialog-mobile::before {
+  content: "";
+  position: absolute;
+  inset: -100px;
+  background:
+    radial-gradient(circle at left, #7c3aed55, transparent 40%),
+    radial-gradient(circle at right, #4ade8055, transparent 40%);
+  filter: blur(120px);
+  z-index: 0;
+}
+
+/* GRID */
+.dialog-box::after,
+.dialog-mobile::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: 0;
+}
+
+/* ================= INPUT ================= */
+
+.input-style {
+  @apply px-3 h-10 rounded-lg bg-white/10 border border-white/20
+         text-white placeholder-gray-300 outline-none;
+}
+
+/* ================= BUTTONS ================= */
+
+.cancel-btn {
+  @apply px-3 h-9 rounded-lg border border-white/20 text-sm text-white/80;
+}
+
+.submit-btn {
+  @apply px-4 h-9 rounded-lg text-sm font-medium transition-all duration-300;
+  background: rgba(124, 58, 237, 0.15);
+  border: 1px solid rgba(124, 58, 237, 0.4);
+  color: #c4b5fd;
+}
+
+.submit-btn:hover {
+  background: rgba(124, 58, 237, 0.25);
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease;
+}

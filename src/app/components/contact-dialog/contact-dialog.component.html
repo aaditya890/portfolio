@@ -1,0 +1,197 @@
+<!-- BACKDROP -->
+<div class="fixed inset-0 bg-black/40 backdrop-blur-md z-50" (click)="closeDialog()">
+</div>
+
+<!-- ================= DESKTOP ================= -->
+<div class="hidden sm:flex fixed inset-0 items-center justify-center z-50 px-4">
+
+  <div class="w-full max-w-5xl h-[440px] rounded-2xl overflow-hidden
+           bg-black border border-white/20 shadow-2xl flex">
+
+    <!-- LEFT IMAGE -->
+    <div class="w-1/2 h-full relative border-r border-white/10">
+
+      <img src="assets/12.png" class="w-full h-full object-cover scale-105" />
+
+      <!-- overlay -->
+      <!-- <div class="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent"></div> -->
+
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div class="w-1/2 px-8 py-6 flex flex-col justify-between relative">
+
+      <!-- CLOSE -->
+      <button (click)="closeDialog()" class="absolute top-4 right-4 text-white/60 hover:text-white text-xl">
+        ✕
+      </button>
+
+      <!-- TOP -->
+      <div>
+
+        <h2 class="text-2xl font-semibold text-white mb-1">
+          Contact Now
+        </h2>
+
+        <p class="text-sm text-white/50 mb-5">
+          Let’s build something amazing together 🚀
+        </p>
+
+        <!-- FEATURE TAGS -->
+        <div class="flex gap-3 mb-6 text-xs text-white/60">
+          <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 18v-5.25m0 0a6.01 6.01 0 0 0 1.5-.189m-1.5.189a6.01 6.01 0 0 1-1.5-.189m3.75 7.478a12.06 12.06 0 0 1-4.5 0m3.75 2.383a14.406 14.406 0 0 1-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 1 0-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
+            </svg>
+            Design
+          </div>
+          <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-4">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M9.53 16.122a3 3 0 0 0-5.78 1.128 2.25 2.25 0 0 1-2.4 2.245 4.5 4.5 0 0 0 8.4-2.245c0-.399-.078-.78-.22-1.128Zm0 0a15.998 15.998 0 0 0 3.388-1.62m-5.043-.025a15.994 15.994 0 0 1 1.622-3.395m3.42 3.42a15.995 15.995 0 0 0 4.764-4.648l3.876-5.814a1.151 1.151 0 0 0-1.597-1.597L14.146 6.32a15.996 15.996 0 0 0-4.649 4.763m3.42 3.42a6.776 6.776 0 0 0-3.42-3.42" />
+            </svg>
+            Build
+          </div>
+          <div class="px-3 py-1 rounded-full bg-white/5 border border-white/10 flex gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="size-4">
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+            Deliver
+          </div>
+        </div>
+
+        <!-- FORM -->
+        <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col gap-4">
+
+          <!-- NAME -->
+          <div>
+            <input formControlName="fullName" placeholder="Full Name"
+              class="px-4 h-11 w-full rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-[#7c3aed]">
+
+            @if (f['fullName'].touched && f['fullName'].invalid) {
+            <span class="text-xs text-red-400">Min 3 characters required</span>
+            }
+          </div>
+
+          <!-- PHONE -->
+          <div>
+            <input formControlName="phone" placeholder="Phone Number"
+              class="px-4 h-11 w-full rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-[#7c3aed]">
+
+            @if (f['phone'].touched && f['phone'].invalid) {
+            <span class="text-xs text-red-400">Enter valid 10 digit number</span>
+            }
+          </div>
+
+          <!-- MESSAGE -->
+          <div>
+            <textarea formControlName="message" placeholder="Your Message"
+              class="px-4 py-3 w-full rounded-xl bg-white/5 border border-white/10 text-white placeholder-gray-400 outline-none focus:border-[#7c3aed]"></textarea>
+
+          </div>
+          <!-- BOTTOM -->
+          <div class="flex items-end justify-end mt-4">
+
+            <!-- <p class="text-xs text-white/40"> -->
+            <!--  -->
+            <!-- </p> -->
+
+            <div class="flex gap-2">
+
+              <button type="button" (click)="closeDialog()"
+                class="px-6 h-10 rounded-lg border border-white/10 text-white/80">
+                Cancel
+              </button>
+
+              <button type="submit" class="px-6 h-10 rounded-lg font-medium
+                   bg-[rgba(124,58,237,0.15)]
+                   border border-[rgba(124,58,237,0.4)]
+                   text-[#c4b5fd]
+                   hover:bg-[rgba(124,58,237,0.25)]
+                   transition">
+                Send
+              </button>
+
+            </div>
+
+          </div>
+        </form>
+
+
+      </div>
+
+
+
+    </div>
+
+  </div>
+
+</div>
+
+<!-- ================= MOBILE ================= -->
+<div class="sm:hidden fixed inset-0 z-50">
+
+  <!-- BACKDROP -->
+  <div class="absolute inset-0 bg-black/40 backdrop-blur-md" (click)="closeDialog()">
+  </div>
+
+  <!-- SHEET -->
+  <div class="absolute bottom-0 left-0 w-full
+           rounded-t-[28px] px-5 pt-4 pb-6
+           bg-[#0b0b0b] border-t border-white/10 shadow-2xl
+           animate-slideUp">
+
+    <!-- HANDLE -->
+    <div class="w-10 h-1.5 bg-white/20 rounded-full mx-auto mb-4"></div>
+
+    <!-- FORM -->
+    <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col gap-3">
+
+      <div>
+        <input formControlName="fullName" placeholder="Full Name"
+          class="px-3 h-11 w-full rounded-lg bg-white/5 border border-white/10 text-white">
+
+        @if (f['fullName'].touched && f['fullName'].invalid) {
+        <span class="text-xs text-red-400">Min 3 characters required</span>
+        }
+      </div>
+
+      <div>
+        <input formControlName="phone" placeholder="Phone Number"
+          class="px-3 h-11 w-full rounded-lg bg-white/5 border border-white/10 text-white">
+
+        @if (f['phone'].touched && f['phone'].invalid) {
+        <span class="text-xs text-red-400">Enter valid 10 digit number</span>
+        }
+      </div>
+
+      <textarea formControlName="message" placeholder="Message"
+        class="px-3 py-2 rounded-lg bg-white/5 border border-white/10 text-white"></textarea>
+
+      <!-- BUTTONS -->
+      <div class="flex gap-2 mt-3">
+
+        <button type="button" (click)="closeDialog()"
+          class="flex-1 h-11 border border-white/10 text-white/80 rounded-lg">
+          Cancel
+        </button>
+
+        <button type="submit" class="flex-1 h-11 rounded-lg
+                 bg-[rgba(124,58,237,0.15)]
+                 border border-[rgba(124,58,237,0.4)]
+                 text-[#c4b5fd]
+                 active:scale-95">
+          Send
+        </button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

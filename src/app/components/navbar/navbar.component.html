@@ -1,0 +1,105 @@
+<header class="sticky top-4 z-50 px-4">
+
+  <div class="nav-container relative flex items-center justify-between
+           px-3 sm:px-6 py-1 max-w-4xl mx-auto
+           rounded-full
+           bg-white/60 backdrop-blur-xl
+           border border-white/40
+           shadow-sm">
+
+    <!-- LEFT -->
+    <div>
+      <button>
+        <img [src]="profileImage" alt="Profile" class="logo-img w-12 h-12 rounded-full object-cover" />
+      </button>
+    </div>
+
+    <!-- DESKTOP NAV -->
+    <nav class="hidden sm:flex items-center gap-8">
+      @for (item of links; track item) {
+      <button (click)="navigate(item.toLowerCase())"
+        class="nav-item text-sm font-medium text-gray-800 hover:text-gray-900">
+        {{ item }}
+      </button>
+      }
+    </nav>
+
+    <!-- RIGHT -->
+    <div class="flex items-center gap-3">
+
+      <button (click)="downloadCV()" class="hidden sm:flex items-center gap-2 px-3 h-9
+         rounded-full
+         bg-white/40 backdrop-blur-md
+         border border-white/30
+         text-xs font-medium text-gray-700
+         hover:bg-white/60 transition-all duration-300">
+
+        Download CV
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708" />
+        </svg>
+
+      </button>
+
+      <!-- MOBILE -->
+      <button (click)="toggleMenu()" class="sm:hidden">
+        <div class="hamburger">
+          <input class="checkbox" type="checkbox" [checked]="open" aria-hidden="true" />
+
+          <svg fill="none" viewBox="0 0 50 50" height="35" width="35">
+            <path class="lineTop line" stroke-linecap="round" stroke-width="6" stroke="black" d="M6 11L44 11" />
+
+            <path class="lineMid line" stroke-linecap="round" stroke-width="6" stroke="black" d="M6 24H43" />
+
+            <path class="lineBottom line" stroke-linecap="round" stroke-width="6" stroke="black" d="M6 37H43" />
+          </svg>
+        </div>
+      </button>
+
+    </div>
+  </div>
+
+  <!-- MOBILE DRAWER -->
+  @if (open) {
+
+  <div class="overlay fixed inset-0 bg-black/30 z-40" (click)="open = false">
+  </div>
+
+  <div class="drawer fixed bottom-0 left-0 w-full
+           bg-white rounded-t-3xl px-6 py-8 z-50">
+
+    <div class="flex flex-col items-center gap-6 w-full">
+
+      @for (item of links; track item) {
+      <button (click)="navigate(item.toLowerCase())"
+        class="drawer-item text-lg font-medium text-gray-800 hover:text-gray-900">
+        {{ item }}
+      </button>
+      }
+
+      <!-- 🔥 DOWNLOAD CV (MOBILE) -->
+      <button (click)="downloadCV()" class="flex items-center justify-center gap-2 px-4 h-10 w-full
+           rounded-full
+           bg-white/40 backdrop-blur-md
+           border border-black/10
+           text-sm font-medium text-gray-800
+           hover:bg-white/60 transition-all duration-300">
+
+        Download CV
+
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+          <path
+            d="M8 2a5.53 5.53 0 0 0-3.594 1.342c-.766.66-1.321 1.52-1.464 2.383C1.266 6.095 0 7.555 0 9.318 0 11.366 1.708 13 3.781 13h8.906C14.502 13 16 11.57 16 9.773c0-1.636-1.242-2.969-2.834-3.194C12.923 3.999 10.69 2 8 2m2.354 6.854-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 1 1 .708-.708L7.5 9.293V5.5a.5.5 0 0 1 1 0v3.793l1.146-1.147a.5.5 0 0 1 .708.708" />
+        </svg>
+
+      </button>
+
+    </div>
+
+  </div>
+
+  }
+
+</header>

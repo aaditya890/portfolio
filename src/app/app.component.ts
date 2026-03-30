@@ -1,31 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { NavbarComponent } from "./navbar/navbar.component";
-import { HomeComponent } from "./home/home.component";
-import { FooterComponent } from "./footer/footer.component";
-import { ProjectsComponent } from "./projects/projects.component";
-import { SkillsComponent } from './skills/skills.component';
+import { Component, inject, OnInit } from '@angular/core';
 import Lenis from '@studio-freight/lenis';
 import AOS from 'aos';
-import { DumComponent } from "./dum/dum.component";
+import { HomeComponent } from './components/home/home.component';
+import { DialogService } from './services/dialog.service';
+import { ContactDialogComponent } from './components/contact-dialog/contact-dialog.component';
+import { ToastComponent } from "./toast/toast.component";
+
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [
-    RouterOutlet,
-    NavbarComponent,
-    HomeComponent,
-    FooterComponent,
-    ProjectsComponent,
-    SkillsComponent,
-    DumComponent
-],
+  imports: [HomeComponent, ContactDialogComponent, ToastComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-
+  public dialogService = inject(DialogService);
   lenis: any;
 
   ngOnInit(): void {
@@ -57,5 +47,9 @@ export class AppComponent implements OnInit {
     this.lenis.on('scroll', () => {
       AOS.refreshHard(); // 👈 refreshHard use karo
     });
+  }
+
+  closeContactDialog() {
+    this.dialogService.closeContactDialog();
   }
 }
