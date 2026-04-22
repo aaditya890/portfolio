@@ -11,7 +11,7 @@ import { ScrollService } from '../../services/scroll.service';
 
 export class NavbarComponent {
 
-  @Input() profileImage: string = 'assets/vector-profile-icon.svg';
+  @Input() profileImage: string = 'assets/nav-icon.webp';
   @Input() profileName: string = 'Software Developer';
   private scrollService = inject(ScrollService);
   @Input() profileRole: string = 'Designer';

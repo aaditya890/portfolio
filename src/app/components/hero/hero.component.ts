@@ -14,7 +14,7 @@ export class HeroComponent implements OnInit, OnDestroy {
     "नमस्ते ",
     "Namaste",
     "こんにちは",
-    "你好",
+    "你好", 
     "안녕하세요",
   ]; greetingIndex = 0;
   greetingText = this.greetings[0];
