@@ -33,20 +33,6 @@ export class ProjectsComponent {
 
   projects = signal([
     {
-      title: 'Dmsprism',
-      desc: 'Dmsprism is a UK-based digital service platform offering a wide range of marketing, branding, and web solutions for businesses. Built with a modern tech stack, it delivers scalable performance and seamless user experience.',
-      image: 'assets/web-showcase-images/dmsprism.webp',
-      url: 'https://dmsprism.com/',
-      tags: ['Angular', 'Angular Material', 'Tailwind', 'Firebase', 'TawkChat'],
-    },
-    {
-      title: 'The Girls Room London',
-      desc: 'The Girls Room London is a clinic-based informational landing page designed with a clean and modern UI. Built using Angular, Angular Material, Tailwind, and SCSS, it features responsive layouts and Web3Forms integration for seamless contact handling.',
-      image: 'assets/web-showcase-images/thegirlsroom.webp',
-      url: 'https://thegirlsroomlondon.com/',
-      tags: ['Angular', 'Angular Material', 'Tailwind', 'SCSS', 'Web3Forms'],
-    },
-    {
       title: 'KiteCab',
       desc: 'KiteCab is a modern cab booking platform that enables users to book rides quickly and efficiently. It features a responsive interface, real-time booking flow, vehicle management, and a seamless user experience built with modern web technologies.',
       image: 'assets/web-showcase-images/kitecab.webp',
